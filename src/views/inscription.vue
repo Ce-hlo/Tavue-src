@@ -4,12 +4,14 @@ import headerVue from "../components/header.vue";
 import cardCommande from "../components/card-commande.vue";
 import footerVue from "../components/footer.vue";
 
-  // Import pocketbase
-  import PocketBase from 'pocketbase'
-  // Objet pocketBase
-  if (import.meta.env.MODE === "production")
+// Import pocketbase
+import PocketBase from "pocketbase";
+// Objet pocketBase
+var pocketbase_ip = "";
+if (import.meta.env.MODE === "production")
   pocketbase_ip = "http://193.168.146.127/:80";
 else pocketbase_ip = "http://127.0.0.1:8090";
+
 </script>
 
 <template>
