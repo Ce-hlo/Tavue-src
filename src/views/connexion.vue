@@ -23,9 +23,21 @@ else pocketbase_ip = "http://127.0.0.1:8090";
   let currentUser = ref(null)
   let avatar = ref(null)
 
-  const doLogin = async () => {
-  try { const authData = await pb.collection('users') .authWithPassword(username.value, password.value)} catch (e) { console.log(e) }
-  };
+  const login=async()=>{
+  try{
+    const authData = await pb.collection('users')
+    .authWithPassword(user.value, psw.value)
+    console.log("connecté : ",authData)
+    //refresh()    
+  }catch(error){
+//    console.log("erreur de connexion : ",error.message)
+    alert("Erreur d'identification : mauvais login et/ou mot de passe")
+    user.value = ""
+    psw.value = ""
+  }
+}
+  }
+
 </script>
 
 <template>
@@ -33,8 +45,8 @@ else pocketbase_ip = "http://127.0.0.1:8090";
 
   <h1 class="text-center mt-5 text-[25px]">Se connecter</h1>
   <div class="grid justify-center space-y-12 mt-5">
-    <input type="email" required id="email" placeholder="mail" />
-    <input type="password" reqiured id="password" placeholder="mot de passe" />
+    <input type="email" required id="email" v-model="user" />
+    <input type="password" reqiured id="password" v-model="psw" />
     <div>
       <input type="checkbox" required id="checkbox" />
       <label class="ml-2">J'accepte les conditions d'utilisation</label>
