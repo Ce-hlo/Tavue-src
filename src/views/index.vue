@@ -18,7 +18,7 @@ import footerVue from "../components/footer.vue";
   </div>
   <div class="flex h-screen w-auto">
     <img
-      class="w-[800px] h-[634px] object-cover"
+      class="w-[900px] h-[634px] object-cover"
       src="../../public/accueil-droite.jpg"
     />
     <img
