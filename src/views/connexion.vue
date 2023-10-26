@@ -10,9 +10,9 @@ const router = useRouter();
 import PocketBase from "pocketbase";
 // Objet pocketBase
 var pocketbase_ip = "";
-/*if (import.meta.env.MODE === "production")
+if (import.meta.env.MODE === "production")
   pocketbase_ip = "http://193.168.146.127/:80";
-else pocketbase_ip = "http://127.0.0.1:8090";*/
+  //else pocketbase_ip = "http://127.0.0.1:8090";
 const pb = new PocketBase("http://127.0.0.1:8090");
 // user connecté ? au départ faux
 let isConnected = ref(false);
@@ -45,7 +45,7 @@ const login = async () => {
 <template>
   <headerVue />
 
-  <h1 class="text-center mt-5 text-[25px]">Se connecter xx</h1>
+  <h1 class="text-center mt-5 text-[25px]">Se connecter</h1>
   <div class="grid justify-center space-y-12 mt-5">
     <input type="email" required id="email" v-model="user" />
     <input type="password" reqiured id="password" v-model="psw" />
